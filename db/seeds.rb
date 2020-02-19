@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Restaurant.destroy_all
+puts 'Restaurants removed'
+require 'faker'
+100.times do
+  Restaurant.create(
+    name: Faker::Company.name,
+    address: Faker::Address.street_name,
+    phone_number: Faker::PhoneNumber.phone_number,
+    category: ["chinese", "italian", "japanese", "french", "belgian"].sample
+  )
+end
